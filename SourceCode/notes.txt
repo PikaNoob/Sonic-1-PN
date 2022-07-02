@@ -1,0 +1,12 @@
+Bited Sound:
+S3K:
+- Hydrocity 1,2
+- Mushroom 1
+- Icecap 1,2
+- Angel Island 1,2
+- Sky Sanctuary
+- Mini Bosses
+
+- FZ after LZ3!!!
+
+- Я удалил какие-то dc.b 0 после мапимнгов зон, в которых четное количество строк... В этом же нет ничего страшного?

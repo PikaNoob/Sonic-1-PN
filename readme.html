@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>S1 Hacking Studio Readme</title>
+<style>
+<!--
+body { background-color: #EEEEEE; color: #000033; font-family: Times New Roman }
+small{ margin-left: 20px; margin-bottom: 20px; font-family: Arial }
+h1   { 
+	margin-left: 20px; 
+	margin-bottom:0px; 
+	color: #000066; 
+	font-size: 18px; 
+	font-family: Verdana; 
+	font-weight: bold 
+}
+h2   { 
+	color: #993333; 
+	font-size: 16px;
+	font-family: Arial; 
+	margin-left: 20px; 
+	font-weight: bold }
+p    { 
+	margin-top: 0px; 
+	margin-bottom: 5px; 
+	text-indent: 20px; 
+	font-family: Times New Roman }
+div  { font: 13px, "Courier New", Courier, monospace; border: dotted 1px #0099FF; background-color: #FFFFFF; margin-top: 7px; margin-bottom: 7px; margin-left: 5px; margin-right: 5px }
+.blue{ color: #000099 }
+.gren{ color: #009900 }
+-->
+</style>
+</head>
+
+<body>
+<h1>S1 Hacking Studio</h1>
+<p>Version 1.1, Built 11/24/2009</p>
+<p><b>Program by </b>vladikcomper</p>
+<!--<p><b>Страница программы: </b><a href="http://vladikcomper.narod.ru/dump_sonic_view.htm?6">http://vladikcomper.narod.ru/dump_sonic_view.htm?6</a><br />&nbsp;</p>-->
+<p>S1 Hacking Studio - is a packge to create Sonic the Hedgehog 1 hacks. ROMs are built from  disassembly. S1 Hacking studio performs easy game tweaking, it features SonED2 for level editing.</p>
+<h2>Warning</h2>
+<ul>
+<li><b>Program path's leenght must be less than about 48 symbols.</b></li>
+<li><b>This is not program for editing S1 ROMs</b>, this program lets you build ROMs from disassembled code (it located in <b>SourceCode</b> folder)<br /></li>
+<li><b>Disassembly that S1 Hacking Studio uses is based on Hivebrain's Disassembly, but has some modifications.</b> You shouldn't replace "sonic1.asm" file with your own. But feel free to edit source code.</li>
+</ul>
+
+<h2>How to set up program</h2>
+<p>Yes, to work with S1 Hacking Studio, you should store it a little. First of all, extract it from archive, if you haven't done it yet. <b>Program path souldn't be shorter than 48 symbols</b>. I don't know why, but old ASM compiler will shout if the path is too long.</p>
+<p>Now you have to choose the location where your ROM will be writen. Choose "Compilation" tab and press "Browse" button.</p>
+<p><b>Warning!</b> If file you've choosen is already exist, it'll be overwriten, so be careful.</p>
+<p>That's all. Now press "Save", then "Compile". Open output ROM in your emulator, it should look like original Sonic 1 ROM. If you have some problemms, read <b>FAQ</b>.</p>
+
+<h2>FAQ</h2>
+<ul>
+<li><b>When I try to compile a ROM, I get a critical error, which looks something like this: "The instruction at 00401dd2 referenced memory at 003e27f8".</b><br />
+I guess, program path is too long for an old ASM compiler. Move program to make path to "SourceCode" folder less than 48 symbols (though I don't really know about the leength).<br />&nbsp;</li>
+
+<li><b>I can't play my game in emulator! It shows nothing.</b><br />I guess it's caused by compilation error. You should exactly know its description. So go to "Compilation" tab, and switch off "Close compilator window when compilation is done" option, then press "Save" and "Compile". See what compiler writes.<br />
+If the error is "Branch Offset Out of Index" or "Branch is out of range", then you should go to "Texts > Zone names" and make some names shorter.<br />&nbsp;</li>
+
+<li><b>I got a red screen.</b><br />Hey, you're lying :) I've fixed it.<br />&nbsp;</li>
+</ul>
+
+<h2>Source Code Changes</h2>
+<ul>
+<li>GHZ art megred into one file, title screen art splited.</li>
+<li>Music Slots were expanded to fit 3 songs per zone</li>
+<li>Some songs were moved to new slots</li>
+<li>Specific BGM play code</li>
+<li>Spin Dash was added</li>
+<li>Jump Dash was added</li>
+<li>Spike Bug fixed</li>
+<li>Some mappings data was put to binary files</li>
+<li>Red Screen was removed</li>
+<li>and something else I didn't remember...</li>
+</ul>
+
+<h2>Credits</h2>
+<ul>
+<li>S1 Hacking Studio and "S1 Hacking Studio - Porter" are programmed by Vladikcomper</li>
+<li>Game Source Code based on Hivebrain's Disassembly</li>
+<li>Disassembly modifications by Vladikcomper</li>
+<li>Sonic 3 sprite by hbrd</li>
+<li>Other graphics and music rips by Vladikcomper</li>
+<li>SonED2 by Stealth</li>
+</ul>
+</body>
+
+</html>
