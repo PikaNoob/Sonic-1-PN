@@ -5,13 +5,13 @@ smpsHeaderStartSong = 1
 	smpsHeaderTempo     $01, $03
 
 	smpsHeaderDAC       Mus81_GHZ_DAC
-	smpsHeaderFM        Mus81_GHZ_FM1,	$F4, $0D
+	smpsHeaderFM        Mus81_GHZ_FM1,	$F4, $12
 	smpsHeaderFM        Mus81_GHZ_FM2,	$00, $0B
 	smpsHeaderFM        Mus81_GHZ_FM3,	$F4, $14
 	smpsHeaderFM        Mus81_GHZ_FM4,	$F4, $08
-	smpsHeaderFM        Mus81_GHZ_FM5,	$F4, $14
+	smpsHeaderFM        Mus81_GHZ_FM5,	$F4, $20
 	smpsHeaderPSG       Mus81_GHZ_PSG1,	$D0, $01, $00, fTone_03
-	smpsHeaderPSG       Mus81_GHZ_PSG2,	$F4, $05, $00, fTone_06
+	smpsHeaderPSG       Mus81_GHZ_PSG2,	$DC, $05, $00, fTone_03
 	smpsHeaderPSG       Mus81_GHZ_PSG3,	$00, $03, $00, fTone_04
 
 ; FM1 Data
@@ -29,28 +29,28 @@ Mus81_GHZ_Loop0E:
 	smpsAlterVol        $01
 	smpsLoop            $00, $0D, Mus81_GHZ_Loop0E
 	dc.b	nE7, $04, nRst, $14
-	smpsAlterVol        $EB
+	smpsAlterVol        $ED
 	smpsPan             panCenter, $00
 	dc.b	nRst, $40, nRst, nRst, nRst, nRst, nRst
 
 Mus81_GHZ_Jump04:
 	smpsSetvoice        $06
 	smpsModSet          $0D, $01, $07, $04
-	smpsAlterPitch      $F4
+	;smpsAlterPitch      $F4
 	dc.b	nRst, $20
 	smpsCall            Mus81_GHZ_Call07
 	dc.b	nC6, $38
 	smpsCall            Mus81_GHZ_Call07
 	dc.b	nC6, $08, $08, nE6
-	smpsAlterPitch      $0C
+	;smpsAlterPitch      $0C
 	smpsSetvoice        $06
-	smpsAlterPitch      $F4
+	;smpsAlterPitch      $F4
 	dc.b	nD6, $34, smpsNoAttack, $34, nC6, $08, nD6, nE6, $38, smpsNoAttack, $38, nC6
 	dc.b	$08, nC6, nE6, nEb6, $34, smpsNoAttack, $34, nC6, $08, nEb6, nD6, $1C
 	dc.b	smpsNoAttack, $1C
-	smpsSetvoice        $05
-	smpsAlterPitch      $F4
-	smpsAlterVol        $0A
+	;smpsSetvoice        $05
+	;smpsAlterPitch      $F4
+	;smpsAlterVol        $0A
 	dc.b	nRst, $08, nE7, $0C, nRst, $04
 	smpsNoteFill        $0B
 	dc.b	nE7, $08, nF7, nE7, nG7
@@ -59,8 +59,8 @@ Mus81_GHZ_Jump04:
 	smpsNoteFill        $0B
 	dc.b	nC7, $08
 	smpsNoteFill        $00
-	smpsAlterVol        $F6
-	smpsAlterPitch      $18
+	;smpsAlterVol        $F6
+	;smpsAlterPitch      $18
 	smpsJump            Mus81_GHZ_Jump04
 
 Mus81_GHZ_Call02:
@@ -483,22 +483,22 @@ Mus81_GHZ_Voices:
 	smpsVcTotalLevel    $00, $13, $2D, $24
 
 ;	Voice $01
-;	$20
-;	$36, $35, $30, $31, 	$DF, $DF, $9F, $9F, 	$07, $06, $09, $06
-;	$07, $06, $06, $08, 	$20, $10, $10, $F8, 	$19, $37, $13, $80
-	smpsVcAlgorithm     $00
-	smpsVcFeedback      $04
+;	$3C
+;	$01, $00, $00, $00, 	$1F, $1F, $15, $1F, 	$11, $0D, $12, $05
+;	$07, $04, $09, $02, 	$55, $3A, $25, $1A, 	$1A, $00, $07, $00
+	smpsVcAlgorithm     $04
+	smpsVcFeedback      $07
 	smpsVcUnusedBits    $00
-	smpsVcDetune        $03, $03, $03, $03
-	smpsVcCoarseFreq    $01, $00, $05, $06
-	smpsVcRateScale     $02, $02, $03, $03
-	smpsVcAttackRate    $1F, $1F, $1F, $1F
+	smpsVcDetune        $00, $00, $00, $00
+	smpsVcCoarseFreq    $00, $00, $00, $01
+	smpsVcRateScale     $00, $00, $00, $00
+	smpsVcAttackRate    $1F, $15, $1F, $1F
 	smpsVcAmpMod        $00, $00, $00, $00
-	smpsVcDecayRate1    $06, $09, $06, $07
-	smpsVcDecayRate2    $08, $06, $06, $07
-	smpsVcDecayLevel    $0F, $01, $01, $02
-	smpsVcReleaseRate   $08, $00, $00, $00
-	smpsVcTotalLevel    $00, $13, $37, $19
+	smpsVcDecayRate1    $05, $12, $0D, $11
+	smpsVcDecayRate2    $02, $09, $04, $07
+	smpsVcDecayLevel    $01, $02, $03, $05
+	smpsVcReleaseRate   $0A, $05, $0A, $05
+	smpsVcTotalLevel    $00, $07, $00, $1A
 
 ;	Voice $02
 ;	$36
@@ -572,23 +572,25 @@ Mus81_GHZ_Voices:
 	smpsVcReleaseRate   $0F, $0F, $0F, $0F
 	smpsVcTotalLevel    $00, $17, $00, $16
 
-;	Voice $06
-;	$04
-;	$72, $42, $32, $32, 	$12, $12, $12, $12, 	$00, $08, $00, $08
-;	$00, $08, $00, $08, 	$0F, $1F, $0F, $1F, 	$23, $80, $23, $80
+
+;	Voice $07
+;	$34
+;	$00, $02, $01, $01, 	$1F, $1F, $1F, $1F, 	$10, $06, $06, $06
+;	$01, $06, $06, $06, 	$35, $1A, $15, $1A, 	$10, $00, $18, $00
 	smpsVcAlgorithm     $04
-	smpsVcFeedback      $00
+	smpsVcFeedback      $06
 	smpsVcUnusedBits    $00
-	smpsVcDetune        $03, $03, $04, $07
-	smpsVcCoarseFreq    $02, $02, $02, $02
+	smpsVcDetune        $00, $00, $00, $00
+	smpsVcCoarseFreq    $01, $01, $02, $00
 	smpsVcRateScale     $00, $00, $00, $00
-	smpsVcAttackRate    $12, $12, $12, $12
+	smpsVcAttackRate    $1F, $1F, $1F, $1F
 	smpsVcAmpMod        $00, $00, $00, $00
-	smpsVcDecayRate1    $08, $00, $08, $00
-	smpsVcDecayRate2    $08, $00, $08, $00
-	smpsVcDecayLevel    $01, $00, $01, $00
-	smpsVcReleaseRate   $0F, $0F, $0F, $0F
-	smpsVcTotalLevel    $00, $23, $00, $23
+	smpsVcDecayRate1    $06, $06, $06, $10
+	smpsVcDecayRate2    $06, $06, $06, $01
+	smpsVcDecayLevel    $01, $01, $01, $03
+	smpsVcReleaseRate   $0A, $05, $0A, $05
+	smpsVcTotalLevel    $00, $18, $00, $10
+
 
 ;	Voice $07
 ;	$3D
